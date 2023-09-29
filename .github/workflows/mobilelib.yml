@@ -26,6 +26,4 @@ jobs:
         ls -lh
         cd lib-ct-mobile-appium-java
         ls -lh
-        
-    - name: Build with Maven
-      run: mvn clean install -DskipTests
+        mvn clean install -DskipTests
