@@ -29,6 +29,14 @@ jobs:
         ls -lh
         mvn clean install -DskipTests
 
+    - name: Reconfiguration of application.yml
+      run: |
+        pwd
+        ls -lh
+        cd ex-ct-api-restassured-java/src/test/resources
+        ls -lh
+        sed -i 's/generate: off/generate: on/' application.yml
+
     - name: Test execution
       run: |
         pwd
@@ -36,3 +44,10 @@ jobs:
         cd ex-ct-api-restassured-java
         ls -lh
         mvn clean verify
+
+    - name: List target directory
+      run: |
+        pwd
+        ls -lh
+        cd ex-ct-api-restassured-java/target
+        ls -lh
