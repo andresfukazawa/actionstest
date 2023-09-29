@@ -54,3 +54,9 @@ jobs:
         ls -lh
         cd cucumber
         ls -lh
+
+    - name: Upload Cucumber Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: cucumber-report
+        path: ex-ct-api-restassured-java/target/cucumber/cucumber-report.html
