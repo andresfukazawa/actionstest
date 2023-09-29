@@ -36,6 +36,7 @@ jobs:
         cd ex-ct-api-restassured-java/src/test/resources
         ls -lh
         sed -i 's/generate: off/generate: on/' application.yml
+        cat application.yml
 
     - name: Test execution
       run: |
@@ -50,4 +51,6 @@ jobs:
         pwd
         ls -lh
         cd ex-ct-api-restassured-java/target
+        ls -lh
+        cd cucumber
         ls -lh
