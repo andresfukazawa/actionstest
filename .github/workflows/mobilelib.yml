@@ -20,7 +20,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Build with Maven
+    - name: Show current directory
+      run: pwd
+      
+    - name: List directory
       run: ls -lh
         
     - name: Build with Maven
