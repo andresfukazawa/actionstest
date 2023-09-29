@@ -20,11 +20,12 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Show current directory
-      run: pwd
-      
-    - name: List directory
-      run: ls -lh
+    - name: Andres' stuff
+      run: |
+        pwd
+        ls -lh
+        cd lib-ct-mobile-appium-java
+        ls -lh
         
     - name: Build with Maven
       run: mvn clean install -DskipTests
