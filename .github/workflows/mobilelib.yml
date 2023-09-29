@@ -12,7 +12,7 @@ jobs:
       env:
         GITLAB_ACCESS_TOKEN: ${{ secrets.TOKEN }}
       run: |
-        git clone 'https://${{ secrets.USERID }}:${GITLAB_ACCESS_TOKEN}@umane.emeal.nttdata.com/git/CONTINUOUS_TESTING/lib-ct-mobile-appium-java.git'
+        git clone 'https://${{ secrets.USERID }}:${GITLAB_ACCESS_TOKEN}@umane.emeal.nttdata.com/git/CONTINUOUS_TESTING/lib-ct-mobile-appium-java'
         
     - name: Change directory to the cloned repository
       run: cd lib-ct-mobile-appium-java
