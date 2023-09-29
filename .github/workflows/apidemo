@@ -1,0 +1,38 @@
+name: Clone from Umane, build library and execute test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clone from GitLab
+      env:
+        GITLAB_ACCESS_TOKEN: ${{ secrets.TOKEN }}
+      run: |
+        git clone https://${{ secrets.USERID }}:${{ secrets.TOKEN }}@umane.emeal.nttdata.com/git/CONTINUOUS_TESTING/lib-ct-api-restassured-java.git
+        git clone https://${{ secrets.USERID }}:${{ secrets.TOKEN }}@umane.emeal.nttdata.com/git/CONTINUOUS_TESTING/ex-ct-api-restassured-java.git
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Library installation
+      run: |
+        pwd
+        ls -lh
+        cd lib-ct-api-restassured-java
+        ls -lh
+        mvn clean install -DskipTests
+
+    - name: Test execution
+      run: |
+        pwd
+        ls -lh
+        cd ex-ct-api-restassured-java
+        ls -lh
+        mvn clean verify
